@@ -20,7 +20,7 @@ let package = Package(
         ),
         .testTarget(
             name: "BaxSDK_tests",
-            dependencies: ["BaxSDK"],
+            dependencies: ["BaxSDK","XCTest"],
             path: "Tests/BaxSDKTests"
         ),
     ]
