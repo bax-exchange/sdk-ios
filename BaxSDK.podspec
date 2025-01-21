@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "BaxSDK"
-  spec.version      = "0.0.3"
+  spec.version      = "0.0.4"
   spec.summary      = "Bax SDK for iOS enables seamless integration of web-based content into your SwiftUI applications."
   spec.description  = <<-DESC
   BaxSDK provides an intuitive API for embedding web content within iOS applications, utilizing WKWebView for web rendering and SwiftUI for modern UI components. Ideal for developers looking to streamline web-based feature integration.
@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "13.0"
   spec.source = { :git => "https://github.com/bax-exchange/sdk-ios.git", :tag => "#{spec.version}" }
   spec.source_files = "Sources/**/*.{h,m,swift}"
-  spec.frameworks    = ["UIKit", "Foundation", "WebKit", "XCTest"]
+  spec.frameworks    = ["UIKit", "Foundation", "WebKit"]
   spec.swift_version = '5.7'
   spec.requires_arc = true
   spec.test_spec do |test_spec|
