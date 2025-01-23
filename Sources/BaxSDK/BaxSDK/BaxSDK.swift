@@ -23,7 +23,7 @@ public class BaxSDK: ObservableObject {
         
         switch environment {
         case .sandbox:
-            self.url = URL(string: "https://websdk.bax-stage.com/view")!
+            self.url = URL(string: "https://websdk.sandbox.bax.mx/view")!
         case .production:
             self.url = URL(string: "https://websdk.bax.com/view")!
         }
