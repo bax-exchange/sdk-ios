@@ -48,14 +48,10 @@ class BaxSDKTests: XCTestCase {
     }
     
     func testUrlForSandboxEnvironment() {
-        let sdk = BaxSDK(environment: .sandbox)
-        let url = sdk.url
-        XCTAssertEqual(url.absoluteString, "https://websdk.sandbox.bax.mx/view", "URL should be correct for sandbox environment.")
-    }
-
-    func testUrlForProductionEnvironment() {
-        let sdk = BaxSDK(environment: .production)
-        let url = sdk.url
-        XCTAssertEqual(url.absoluteString, "https://websdk.bax.com/view", "URL should be correct for production environment.")
+        let sandboxSDK = BaxSDK(environment: .sandbox)
+        let productionSDK = BaxSDK(environment: .production)
+        
+        XCTAssertEqual(sandboxSDK.url.absoluteString, "https://websdk.sandbox.bax.mx/view", "URL should be correct for sandbox environment.")        
+        XCTAssertEqual(productionSDK.url.absoluteString, "https://websdk.bax.com/view", "URL should be correct for production environment.")
     }
 }
