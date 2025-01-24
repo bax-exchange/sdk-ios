@@ -35,7 +35,7 @@ public struct WebView: UIViewRepresentable {
             return
         }
         var request = URLRequest(url: validURL)
-        request.setValue("\(jwtToken)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
         
         uiView.load(request)
     }
