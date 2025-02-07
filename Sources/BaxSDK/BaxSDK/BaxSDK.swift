@@ -41,13 +41,21 @@ public class BaxSDK: ObservableObject {
     public func openView(jwtToken: String) {
         initializeSDK()
         
-        let webView = WebView(url: url.absoluteString, jwtToken: jwtToken) {
+        let webView = WebView(url: url.absoluteString, jwtToken: jwtToken, onDismiss: {
             self.dismissView()
-        }
+            }, onJavaScriptMessage: { message in
+            print("Received JavaScript message: \(message)")
+            if message == "close" {
+                self.dismissView()
+                }
+            }
+        )
 
-        if let rootViewController = UIApplication.shared.windows.first?.rootViewController {
+        if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+            let rootViewController = scene.windows.first(where: { $0.isKeyWindow })?.rootViewController {
+
             hostingController = UIHostingController(rootView: webView)
-            hostingController?.modalPresentationStyle = .fullScreen
+                    hostingController?.modalPresentationStyle = .fullScreen
             rootViewController.present(hostingController!, animated: true, completion: nil)
         }
     }
